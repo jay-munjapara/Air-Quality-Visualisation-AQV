@@ -25,3 +25,26 @@ a. **Air pollution** in Metropolitan cities.
 b. **Health condition** of population in respective Metropolitan cities.
 
 c. **Demographic data** (age, etc) of population in respective Metropolitan cities.
+
+
+# Installing / Getting started
+
+Create a virtual env using conda or python-virual-env and then run this command
+
+pip install -r requirements.txt
+
+**Built With**
+
+Python, HTML, CSS
+
+# Style guide
+
+Write code as per PEP8 standard (https://www.python.org/dev/peps/pep-0008/).
+
+# Database
+
+MYSQL
+
+# Licensing
+
+-
