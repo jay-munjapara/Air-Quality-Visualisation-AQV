@@ -17,7 +17,11 @@ This Problem challenges us to present an intuitive and easy to understand – vi
 This problem has the following dimensions
 
 Visualize 3 layers of data of Metropolitan cities.
+
 The 3 layers of data are
+
 a. **Air pollution** in Metropolitan cities.
+
 b. **Health condition** of population in respective Metropolitan cities.
+
 c. **Demographic data** (age, etc) of population in respective Metropolitan cities.
