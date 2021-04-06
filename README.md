@@ -29,7 +29,9 @@ c. **Demographic data** (age, etc) of population in respective Metropolitan citi
 
 Create a virtual env using conda or python-virual-env and then run this command
 
-pip install -r requirements.txt
+<div class="blankslate blankslate-capped">
+  <p>pip install -r requirements.txt</p>
+</div>
 
 **Built With**
 
