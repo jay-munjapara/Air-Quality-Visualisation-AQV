@@ -1,3 +1,5 @@
+![Logo of the project](./images/logo.sample.png)
+
 # Air-Quality-Visualisation-AQV
 
 
@@ -24,27 +26,44 @@ b. **Health condition** of population in respective Metropolitan cities.
 
 c. **Demographic data** (age, etc) of population in respective Metropolitan cities.
 
+### Snapshots of the application 
+<img src="screenshots/login.png" width="400"/> <img src="screenshots/home.png" width="400"/> 
+<img src="screenshots/stockcat.png" width="400"/> <img src="screenshots/profile.png" width="400"/> 
+<img src="screenshots/stocklist.png" width="400"/> <img src="screenshots/summary.png" width="400"/> 
+<img src="screenshots/userslist.png" width="400"/> <img src="screenshots/userrequests.png" width="400"/> 
+<img src="screenshots/addcat.png" width="400"/> <img src="screenshots/addstock.png" width="400"/> 
+<img src="screenshots/updatepassword.png" width="400"/> <img src="screenshots/updateprofile.png" width="400"/> 
 
-# Installing / Getting started
+
+
+
+
+## Installing / Getting started
 
 Create a virtual env using conda or python-virual-env and then run this command
 
-<div class="blankslate blankslate-capped">
-  <p>pip install -r requirements.txt</p>
-</div>
+```shell
+pip install -r requirements.txt
+```
 
-**Built With**
-
+### Built With
 Python, HTML, CSS
 
-# Style guide
+
+
+
+
+## Style guide
 
 Write code as per PEP8 standard (https://www.python.org/dev/peps/pep-0008/).
 
-# Database
 
-MYSQL
 
-# Licensing
+
+## Database
+
+-
+
+## Licensing
 
 -
