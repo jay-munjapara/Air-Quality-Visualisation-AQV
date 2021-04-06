@@ -3,7 +3,7 @@
 
 _“A picture is worth a thousand words”_ so goes the saying. The field of Data Science is incomplete without visual wizardry.
 
-While the age old table and charts still explain most of the data, the latest state of the art D3, JS libraries along with exceptional plots in R, tableau, SAS, setc have taken the field of Visualisation to the next level.
+While the age old table and charts still explain most of the data, the latest state of the art D3, JS libraries along with exceptional plots in R, tableau, SAS, etc have taken the field of Visualisation to the next level.
 
 **Visualisation** is a technique for explaining data in a simplistic and easy to comprehend fashion.
 
