@@ -1,8 +1,6 @@
 # Air-Quality-Visualisation-AQV
 
 
-# Problem Statement
-
 _“A picture is worth a thousand words”_ so goes the saying. The field of Data Science is incomplete without visual wizardry.
 
 While the age old table and charts still explain most of the data, the latest state of the art D3, JS libraries along with exceptional plots in R, tableau, SAS, setc have taken the field of Visualisation to the next level.
