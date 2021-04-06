@@ -16,7 +16,7 @@ import base64
 ########################################################################################################################
 ########## READ CSV DATA ###############################################################################################
 
-df = pd.read_csv('C:/Users/Jay Munjapara/Projects/datasets/MUMBAI_DATA.csv')
+# df = pd.read_csv('C:/Users/Jay Munjapara/Projects/datasets/MUMBAI_DATA.csv')
 # print(df.columns)
 
 ########## STREAMLIT START ##############################################################################################
@@ -28,18 +28,18 @@ st.title("**Air Quality Visualisation for Metropolitian Cities**")
 # st.write("Air quality index (AQI) along with air pollution, Health Condition and Demographic data near {}".format(city))
 # st.write("Air quality index (AQI) and PM2.5 air pollution near Colaba, Mumbai - MPCB, Uran")
 
-# st.sidebar.selectbox(
-#     "You Can do the following using this Website ",
-#     ('Data Pre Processing using Pandas', 'Correcting','Completing','Creating','Modeling using Sklearn')
-# )
+st.sidebar.selectbox(
+    "You Can do the following using this Website ",
+    ('Data Pre Processing using Pandas', 'Correcting','Completing','Creating','Modeling using Sklearn')
+)
 
 ########## CITY - DATA #################################################################################################
 
 city = st.selectbox("City: ", ['MUMBAI', 'KOLKATA', 'CHENNAI', 'DELHI'])
 
-px.set_mapbox_access_token(open("C:/Users/Jay Munjapara/Projects/mapbox_token.txt").read())
+px.set_mapbox_access_token(open("mapbox_token.txt").read())
 
-df = pd.read_csv("C:/Users/Jay Munjapara/Projects/datasets/{}_DATA.csv".format(city))
+df = pd.read_csv("{}_DATA.csv".format(city))
 
 if st.checkbox('Show Data'):
     st.dataframe(df)
