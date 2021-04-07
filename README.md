@@ -1,4 +1,4 @@
-![Logo of the project](./images/logo.sample.png)
+![Logo of the project](./img/aqv_logo.jpg)
 
 # Air-Quality-Visualisation-AQV
 
