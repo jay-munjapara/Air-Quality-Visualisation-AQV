@@ -27,7 +27,7 @@ b. **Health condition** of population in respective Metropolitan cities.
 c. **Demographic data** (age, etc) of population in respective Metropolitan cities.
 
 ### Snapshots of the application 
-<img src="screenshots/login.png" width="400"/> <img src="snapshots/snapshot_1.jpg" width="400"/> 
+<img src="snapshots/snapshot_1.jpg" width="400"/> <img src="snapshots/snapshot_1.jpg" width="400"/> 
 <img src="screenshots/stockcat.png" width="400"/> <img src="screenshots/profile.png" width="400"/> 
 <img src="screenshots/stocklist.png" width="400"/> <img src="screenshots/summary.png" width="400"/> 
 <img src="screenshots/userslist.png" width="400"/> <img src="screenshots/userrequests.png" width="400"/> 
