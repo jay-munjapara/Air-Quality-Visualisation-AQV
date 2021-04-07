@@ -14,10 +14,6 @@ import streamlit.components.v1 as components
 import base64
 
 ########################################################################################################################
-########## READ CSV DATA ###############################################################################################
-
-# df = pd.read_csv('C:/Users/Jay Munjapara/Projects/datasets/MUMBAI_DATA.csv')
-# print(df.columns)
 
 ########## STREAMLIT START ##############################################################################################
 
@@ -28,10 +24,10 @@ st.title("**Air Quality Visualisation for Metropolitian Cities**")
 # st.write("Air quality index (AQI) along with air pollution, Health Condition and Demographic data near {}".format(city))
 # st.write("Air quality index (AQI) and PM2.5 air pollution near Colaba, Mumbai - MPCB, Uran")
 
-st.sidebar.selectbox(
-    "You Can do the following using this Website ",
-    ('Data Pre Processing using Pandas', 'Correcting','Completing','Creating','Modeling using Sklearn')
-)
+# st.sidebar.selectbox(
+#     "You Can do the following using this Website ",
+#     ('Data Pre Processing using Pandas', 'Correcting','Completing','Creating','Modeling using Sklearn')
+# )
 
 ########## CITY - DATA #################################################################################################
 
@@ -39,7 +35,11 @@ city = st.selectbox("City: ", ['MUMBAI', 'KOLKATA', 'CHENNAI', 'DELHI'])
 
 px.set_mapbox_access_token(open("mapbox_token.txt").read())
 
-df = pd.read_csv("{}_DATA.csv".format(city))
+########## READ CSV DATA ###############################################################################################
+
+df = pd.read_csv("datasets/{}_DATA.csv".format(city))
+
+########################################################################################################################
 
 if st.checkbox('Show Data'):
     st.dataframe(df)
@@ -55,9 +55,6 @@ fig_2d = px.scatter_mapbox(
     color_continuous_scale=px.colors.cyclical.IceFire, size_max=15, zoom=10, 
     hover_name = "Area", hover_data = ["Health"]
 )
-
-# st.plotly_chart(fig_2d) # fig.show()
-# st.success("2D Graph Plotted!!! Yassss!!")
 
 ########## 3D GRAPH PLOT ###############################################################################################
 
@@ -76,23 +73,10 @@ fig_3d = px.scatter_3d(
     #labels = {'0': 'Population', '1': 'Sex Ratio', '2': 'Literacy'} , symbol='Population'  , 'Ward','Station'
 )
 
-# st.plotly_chart(fig_3d)
-# st.success("3D Graph Plotted!!! Yassss!!")
+########################################################################################################################
 
 ########################################################################################################################
 
-# st.header("test html import")
-
-# HtmlFile = open("C:/Users/Jay Munjapara/QUARANTINE_VSC/Projects/main.html", 'r', encoding='utf-8')
-# source_code = HtmlFile.read() 
-# print(source_code)
-# components.html(source_code)
-
-########################################################################################################################
-
-# st.write('')
-# Space out the maps so the first one is 2x the size of the other three
-# c1, c2, c3, c4 = st.beta_columns((2, 1, 1, 1))
 c1, c2 = st.beta_columns((1.1, 1))
 
 with c1:
@@ -109,11 +93,4 @@ with c2:
 
 ########################################################################################################################
 
-map_data = pd.DataFrame(
-    np.random.randn(1000, 2) / [50, 50] + [19.0760, 72.8777],
-    columns=['lat', 'lon'])
-
-st.map(map_data)
-
 ########################################################################################################################
-
