@@ -20,6 +20,7 @@ import streamlit.components.v1 as components
 st.set_page_config(layout="wide")
 
 st.title("**Air Quality Visualisation (AQV)**")
+# st.balloons()
 st.write("BY JAY MUNJAPARA | ISHA PATEL | JENIL KANANI | YASH BHAVSAR")
 st.image('img/air_quality.jpg')
 
@@ -78,10 +79,13 @@ total_var = pca.explained_variance_ratio_.sum() * 100
 
 fig_3d = px.scatter_3d(
     df, x='AQI', y='Population', z='Health',
-    color='AQI',color_continuous_scale=[[0, 'green'], [0.5, 'yellow'], [1.0, 'red']], hover_name='Area',
-    hover_data=['AQI', 'Population', 'Health', 'Latitude', 'Longitude', 'Area'],
+    color='AQI',color_continuous_scale=[[0, 'green'], [0.2, 'yellow'],[0.4, 'red'], [0.6, 'rgb(128,0,128)'], [1.0, 'rgb(191,30,46)']], 
+    hover_name='Area', hover_data=['AQI', 'Population', 'Health', 'Latitude', 'Longitude', 'Area'],
     title = f'Total Explained Variance: {total_var:.2f}%',
 )
+
+# fig_3d.update(zmin=0.2, zmax=0.8)
+
 
 # fig_3d.update_layout(
 #     margin=dict(l=25, r=25, t=25, b=25),
@@ -92,7 +96,7 @@ fig_3d = px.scatter_3d(
 
 fig_2d = px.scatter_mapbox(
     df, lat="Latitude", lon="Longitude", color="AQI", size="Population",
-    color_continuous_scale=[[0, 'green'], [0.5, 'yellow'], [1.0, 'red']], 
+    color_continuous_scale=[[0, 'green'], [0.2, 'yellow'],[0.4, 'red'], [0.6, 'rgb(128,0,128)'], [1.0, 'rgb(191,30,46)']], 
     size_max=15, zoom=10, hover_name = "Area", hover_data = ["Health"]
 )
 
@@ -127,7 +131,7 @@ st.write("Air quality index (AQI) along with air pollution, Health Condition and
 
 ########## CITY - DATA #################################################################################################
 
-states = st.selectbox("States: ", ['MUMBAI', 'Uttar Pradesh', 'Maharashtra', 'Bihar', 'West Bengal', 'Rajasthan', 'Madhya Pradesh', 'Karnataka', 'Gujarat', 'Tamil Nadu', 'Andhra Pradesh'])
+states = st.selectbox("States: ", ['ANDHRA PRADESH', 'BIHAR', 'GUJARAT', 'KARNATAKA', 'MADHYA PRADESH', 'MAHARASHTRA', 'RAJASTHAN', 'TAMIL NADU', 'UTTAR PRADESH', 'WEST BENGAL'])
 
 px.set_mapbox_access_token(open("mapbox_token.txt").read())
 
@@ -140,7 +144,7 @@ df = pd.read_csv("datasets/{}_DATA.csv".format(states))
 if st.checkbox('Show Data:'):
     st.dataframe(df)
     coded_data = base64.b64encode(df.to_csv(index = False).encode()).decode()
-    st.markdown(f'<a href="data:file/csv;base64,{df}" download = "{city}_DATA.csv">Download csv file</a>', unsafe_allow_html = True)
+    st.markdown(f'<a href="data:file/csv;base64,{df}" download = "{states}_DATA.csv">Download csv file</a>', unsafe_allow_html = True)
 
 ########## 3D GRAPH PLOT ###############################################################################################
 
@@ -153,8 +157,8 @@ total_var = pca.explained_variance_ratio_.sum() * 100
 
 fig_3d = px.scatter_3d(
     df, x='AQI', y='Population', z='Health',
-    color='AQI',color_continuous_scale=[[0, 'green'], [0.5, 'yellow'], [1.0, 'red']], hover_name='Area',
-    hover_data=['AQI', 'Population', 'Health', 'Latitude', 'Longitude', 'Area'],
+    color='AQI',color_continuous_scale=[[0, 'green'], [0.2, 'yellow'],[0.4, 'red'], [0.6, 'rgb(128,0,128)'], [1.0, 'rgb(191,30,46)']], 
+    hover_name='Area', hover_data=['AQI', 'Population', 'Health', 'Latitude', 'Longitude', 'Area'],
     title = f'Total Explained Variance: {total_var:.2f}%',
 )
 
@@ -167,8 +171,8 @@ fig_3d = px.scatter_3d(
 
 fig_2d = px.scatter_mapbox(
     df, lat="Latitude", lon="Longitude", color="AQI", size="Population",
-    color_continuous_scale=[[0, 'green'], [0.5, 'yellow'], [1.0, 'red']], 
-    size_max=15, zoom=10, hover_name = "Area", hover_data = ["Health"]
+    color_continuous_scale=[[0, 'green'], [0.2, 'yellow'],[0.4, 'red'], [0.6, 'rgb(128,0,128)'], [1.0, 'rgb(191,30,46)']], 
+    size_max=15, zoom=5, hover_name = "Area", hover_data = ["Health"]
 )
 
 # fig_2d.update_layout(
@@ -193,6 +197,41 @@ with c3:
     st.plotly_chart(fig_2d)
 
 st.success("Graph Plotted, Successfully!!")
+
+########################################################################################################################
+
+with st.beta_expander("See 'PM 2.5' and 'PM 10' values of cities in {}".format(states)):
+    # st.write('Juicy deets')
+    fig = go.Figure()
+    fig.add_trace(go.Bar(
+        y=df["Area"],
+        x=df["PM2.5"],
+        name='PM 2.5',
+        marker_color=df["PM2.5"], #'rgb(26, 118, 255)',
+        orientation='h',
+        marker={'color': df["PM2.5"], 'colorscale': [[0, 'green'], [0.5, 'yellow'],[1.0, 'red']]}
+    ))
+    fig.add_trace(go.Bar(
+        y=df["Area"],
+        x=df["PM10"],
+        name='PM 10',
+        # marker_color= df["PM10"], #'rgb(55, 83, 109)', #[[0, 'green'], [0.2, 'yellow'],[0.4, 'red'], [0.6, 'rgb(128,0,128)'], [1.0, 'rgb(191,30,46)']],
+        orientation='h',
+        marker={'color': df["PM10"], 'colorscale': [[0, 'green'], [0.5, 'yellow'],[1.0, 'red']]}
+        # color = df['PM10']
+    ))
+
+    # Here we modify the tickangle of the xaxis, resulting in rotated labels.
+    fig.update_layout(
+        barmode='group', #xaxis_tickangle=-45,
+        height=1000,
+        width = 1300,
+        bargap=0.25, # gap between bars of adjacent location coordinates.
+        bargroupgap=0 # gap between bars of the same location coordinate.
+    )
+    # fig.show()
+
+    st.plotly_chart(fig)
 
 ########################################################################################################################
 
@@ -244,5 +283,3 @@ with col3:
 #     st.write("")
 
 ########################################################################################################################
-
-# st.markdown("<h1 style='text-align: center; color: red;'>Some title</h1>", unsafe_allow_html=True)
