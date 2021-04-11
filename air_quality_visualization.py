@@ -73,7 +73,7 @@ fig_3d = px.scatter_3d(
 )
 
 fig_3d.update_layout(
-    margin=dict(l=25, r=25, t=25, b=25),
+    margin=dict(l=25, r=150, t=25, b=25),
     # paper_bgcolor="LightSteelBlue",
 )
 
@@ -115,7 +115,7 @@ st.write("Air quality index (AQI) along with air pollution, Health Condition and
 
 ########## CITY - DATA #######################################################################################################################
 
-states = st.selectbox("States: ", ['ANDHRA PRADESH', 'BIHAR', 'GUJARAT', 'KARNATAKA', 'MADHYA PRADESH', 'MAHARASHTRA', 'RAJASTHAN', 'TAMIL NADU', 'UTTAR PRADESH', 'WEST BENGAL'])
+states = st.selectbox("States: ", ['ALL', 'ANDHRA PRADESH', 'BIHAR', 'GUJARAT', 'KARNATAKA', 'MADHYA PRADESH', 'MAHARASHTRA', 'RAJASTHAN', 'TAMIL NADU', 'UTTAR PRADESH', 'WEST BENGAL'])
 
 px.set_mapbox_access_token(open("mapbox_token.txt").read())
 
@@ -147,7 +147,7 @@ fig_3d = px.scatter_3d(
 )
 
 fig_3d.update_layout(
-    margin=dict(l=25, r=25, t=25, b=25),
+    margin=dict(l=25, r=150, t=25, b=25),
     # paper_bgcolor="LightSteelBlue",
 )
 
