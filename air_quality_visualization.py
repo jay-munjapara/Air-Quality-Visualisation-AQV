@@ -231,12 +231,7 @@ with c1:
 with c2:
     st.image('img/pm.jpg')
 
-c1, c2 = st.beta_columns((2))
-
-with c1:
-    st.image('img/pm.jpg')
-with c2:
-    st.image('img/co.jpg')
+st.image('img/co.jpg')
 
 c1, c2 = st.beta_columns((2))
 
