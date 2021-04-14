@@ -164,8 +164,7 @@ fig_air.add_trace(go.Bar(
 ))
 
 fig_air.update_layout(
-    # margin=dict(l=10, r=10, t=10, b=10),
-    paper_bgcolor="LightSteelBlue",
+    # paper_bgcolor="LightSteelBlue",
     autosize=False,
     width = 330,
     height = 350,
@@ -195,9 +194,8 @@ fig_demo.add_trace(go.Bar(
     marker={'color': '#005050'}
 ))
 
-fig_demo.update_layout(
-    
-    paper_bgcolor="LightSteelBlue",
+fig_demo.update_layout(    
+    # paper_bgcolor="LightSteelBlue",
     autosize=False,
     width = 330,
     height = 350,
@@ -324,13 +322,12 @@ fig.add_trace(go.Bar(
 ))
 
 fig.update_layout(
-    margin=dict(l=10, r=10, t=10, b=10),
     # paper_bgcolor="LightSteelBlue",
     autosize=False,
+    width = 330,
+    height = 350,
     barmode='group', xaxis_tickangle=-45,
-    # title= "'PM 2.5' and 'PM 10' values of cities in {}".format(states),
-    # width = 330,
-    # height = 350,
+    margin=dict(l=10, r=10, t=10, b=10),
     bargap = 0.25, # gap between bars of adjacent location coordinates.
     bargroupgap = 0 # gap between bars of the same location coordinate.
 )
