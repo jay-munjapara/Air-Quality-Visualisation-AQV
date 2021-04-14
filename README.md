@@ -56,12 +56,3 @@ Python, HTML, CSS
 Write code as per PEP8 standard (https://www.python.org/dev/peps/pep-0008/).
 
 
-
-
-## Database
-
--
-
-## Licensing
-
--
